@@ -1,0 +1,16 @@
+---
+title: "Kashvi Ajitsaria"
+output: html_document
+site: distill::distill_website
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Hello!
+
+![](FBprofilepic.jpg){width=50%}
+
+I'm Kashvi, a senior at Macalester College in St. Paul, Minnesota, originally from Pune, India. I am doing a major in Environmental Studies and Political Science, along with a minor in Data Science. On campus, I occupy leadership positions in the student government and South Asian student organization. Professionally, I'm interested in working in the ESG (Environmental, Social, Governance) and International Development consulting space post-graduation. In my free time, I enjoy making mixed-media art, dancing, petting animals and hanging out with friends. This past summer, I worked with Yorth Group, an organization that provides restorative development and circular economics consulting services to businesses, governments and non-profit organizations. Some of our notable clients included the city of Hibbing in Minnesota, the community organization Reconnect Rondo, and an outdoors apparel brand based in Iceland. Previously, I have worked with Social Impact Consulting firms and Social Entrepreneurship initiatives based in India.     
+

@@ -1,0 +1,10 @@
+---
+title: "Main page"
+output: 
+  html_document: 
+    df_print: paged
+---
+
+## R Markdown
+
+

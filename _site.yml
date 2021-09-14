@@ -1,0 +1,7 @@
+navbar:
+  title: Kashvi's Data Science Portfolio
+  left:
+  - text: Blog
+    href: content.html
+output_dir: "site"
+output: distill::distill_article
