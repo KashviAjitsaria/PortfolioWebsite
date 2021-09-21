@@ -5,6 +5,67 @@ output:
     df_print: paged
 ---
 
-## R Markdown
+## Tidy Tuesdays
 
+21st September 2021
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = TRUE)
+library(tidyverse)
+library(jsonlite)
+library(httr)
+library(lubridate)     # for date manipulation
+library(openintro)     # for the abbr2state() function
+library(maps)          # for map data
+library(ggmap)         # for mapping points on maps
+library(gplots)        # for col2hex() function
+library(RColorBrewer)  # for color palettes
+library(sf)            # for working with spatial data
+library(leaflet)       # for highly customizable mapping
+library(ggthemes)# for more themes (including theme_map())
+library(knitr)
+theme_set(theme_minimal())
+```
+
+
+```{r cars}
+# In this code chunk, I am loading in the tidy tuesday Billboard data 
+
+tuesdata <- tidytuesdayR::tt_load('2021-09-14')
+tuesdata <- tidytuesdayR::tt_load(2021, week = 38)
+
+billboard <- tuesdata$billboard
+audio_features <- tuesdata$audio_features
+```
+
+```{r}
+# In this code chunk, I find the performers who have performed the highest number of songs, which will allow me to choose a performer to use for my graph.
+top_performer <- audio_features %>%
+  group_by(performer) %>% 
+  summarise(number_songs = n()) %>% 
+  arrange(desc(number_songs)) %>% 
+  head(6) %>% 
+  view()
+```
+
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+# In this chode chunk, I am creating a ggplot scatterplot depicting popularity vs danceability
+audio_features %>% 
+  filter(performer == "Taylor Swift") %>% 
+  ggplot(aes(x = danceability, 
+             y = spotify_track_popularity)) +
+  geom_point(fill = "red") +
+  labs(title = "Are Taylor Swift's Danceable Songs Generally More Popular?", 
+       x = "Danceability of Song",
+       y = "Spotify Popularity of Song") +
+  geom_smooth(method = lm)
+```
+
+
+The question that my graph is trying to answer is: 
+*Are Taylor Swift's Danceable Songs Generally More Popular?*
+This graph helps me answer this question, since I can see a positive trend line when plotting the 'danceability' variable against the 'Spotify popularity' variable of the data set. I decided to explore this question for today's assignment because I have enjoyed Taylor Swift's music since I was a tween, and enjoyed both her upbeat dance songs and relaxed acoustic songs, which made me wonder whether certain types of songs were generally more popular.  
 
